@@ -15,6 +15,14 @@ public class CellPhone {
         ownerName = "";
     }
 
+    public CellPhone(long serial, String model, String carrier, String phoneNum, String owner) {
+        serialNumber = serial;
+        modelType = model;
+        serviceCarrier = carrier;
+        phoneNumber = phoneNum;
+        ownerName = owner;
+    }
+
     public long getSerialNumber() {
         return serialNumber;
     }
@@ -53,5 +61,9 @@ public class CellPhone {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public void dial(String phoneNum) {
+        System.out.println(ownerName + "'s phone is calling " + phoneNum + ".");
     }
 }
