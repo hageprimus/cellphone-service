@@ -4,33 +4,26 @@ import java.util.Scanner;
 public class CellPhoneApplication {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        CellPhone phone1 = new CellPhone(123456789L, "Google Pixel", "Verizon", "646-689-1213", "Hage Primus");
+        CellPhone phone1 = new CellPhone();
         CellPhone phone2 = new CellPhone(987654321L, "iPhone 18", "AT&T", "646-420-6769", "John Smith");
+        CellPhone phone3 = new CellPhone(111110000L, "Samsung Galaxy S25", "T-Mobile", "718-456-7890", "Mary Jane");
 
+        //Set parameters for phone 1
+        phone1.setSerialNumber(Long.parseLong(getInputFromConsole("What is your phone's serial number?", s, false)));
+        phone1.setModelType(getInputFromConsole("What is the phone's model type?", s, true));
+        phone1.setServiceCarrier(getInputFromConsole("Who is the service provider?", s, true));
+        phone1.setPhoneNumber(getInputFromConsole("What is the phone number?", s, true));
+        phone1.setOwnerName(getInputFromConsole("Who is the owner of the phone?", s, true));
+
+        //Test display
         display(phone1);
         display(phone2);
+        display(phone3);
 
+        //Test dial
         phone1.dial(phone2.getPhoneNumber());
         phone2.dial(phone1.getPhoneNumber());
-
-//        StringBuilder outputContainer = new StringBuilder();
-//        CellPhone myPhone = new CellPhone();
-//
-//        //Set parameters
-//        myPhone.setSerialNumber(Long.parseLong(getInputFromConsole("What is your phone's serial number?", s, false)));
-//        myPhone.setModelType(getInputFromConsole("What is the phone's model type?", s, true));
-//        myPhone.setServiceCarrier(getInputFromConsole("Who is the service provider?", s, true));
-//        myPhone.setPhoneNumber(getInputFromConsole("What is the phone number?", s, true));
-//        myPhone.setOwnerName(getInputFromConsole("Who is the owner of the phone?", s, true));
-//
-//        //Get parameters and print
-//        outputContainer.append("Serial number: ").append(myPhone.getSerialNumber()).append("\n")
-//                       .append("Model type: ").append(myPhone.getModelType()).append("\n")
-//                       .append("Service provider: ").append(myPhone.getServiceCarrier()).append("\n")
-//                       .append("Phone number: ").append(myPhone.getPhoneNumber()).append("\n")
-//                       .append("Owner name: ").append(myPhone.getOwnerName()).append("\n");
-//
-//        System.out.println(outputContainer);
+        phone3.dial(phone1);
     }
 
     public static void display(CellPhone phone) {
