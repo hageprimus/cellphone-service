@@ -24,6 +24,7 @@ public class CellPhoneApplication {
         phone1.dial(phone2.getPhoneNumber());
         phone2.dial(phone1.getPhoneNumber());
         phone3.dial(phone1);
+        s.close();
     }
 
     public static void display(CellPhone phone) {
